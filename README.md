@@ -1,0 +1,1 @@
+# tsdc_vinilos_movile_app
