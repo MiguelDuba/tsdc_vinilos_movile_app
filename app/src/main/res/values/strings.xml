@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">Vinilos</string>
-</resources>
+    <string name="login">Iniciar sesión</string>
+    <string name="login_mode">Selecciona el modo en el que quieres ingresar</string>
+    <string name="guest">Invitado</string>
+    <string name="collector">Coleccionista</string>
+    <string name="collectors">Coleccionistas</string>
+    <string name="artists">Artistas</string>                  
+    <string name="albums">Albums</string>
+    <string name="albums_collected">Albums coleccionados</string>
+    <string name="add_track">Agregar canción</string>
+    <string name="add">Agregar</string>
+    <string name="tracks">Canciones</string>
+    <string name="create_album">Crear album</string>
+    <string name="create">Crear</string>
+    <string name="name">Nombre</string>
+    <string name="duration">Duración</string>
+    <string name="genre">Género</string>
+    <string name="release_year">Año de lanzamiento</string>
+    <string name="record_company">Disquera</string>
+    <string name="image_url">URL Imagen</string>
+</resources> 
