@@ -1,8 +1,9 @@
-package com.miso.vinilos
+package com.miso.vinilos.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import com.miso.vinilos.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
