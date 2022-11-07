@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/artistsFragment"
+        android:title="@string/artists"
+        android:icon="@drawable/ic_user"
+        />
+
+    <item android:id="@+id/collectorsFragment"
+        android:title="@string/collectors"
+        android:icon="@drawable/ic_collectors"
+        />
+
+    <item android:id="@+id/albumsFragment"
+        android:title="@string/albums"
+        android:icon="@drawable/ic_albums"
+        />
+</menu>

@@ -1,8 +1,10 @@
-package com.miso.vinilos
+package com.miso.vinilos.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import com.miso.vinilos.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,5 +23,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun goToHome() {
+        val intent = Intent(this, PrincipalActivity::class.java)
+        startActivity(intent)
     }
 }
