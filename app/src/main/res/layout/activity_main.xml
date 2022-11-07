@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center_vertical"
+    android:gravity="center_vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/login"
+        android:textAlignment="center"
+        android:fontFamily="@font/roboto"
+        android:textColor="@color/blue"
+        android:textSize="50sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/login_mode"
+        android:textAlignment="center"
+        android:textSize="13sp" />
+
+    <Button
+        android:id="@+id/btn_login_collector"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginRight="60dp"
+        android:backgroundTint="@color/red"
+        android:text="@string/collector"
+        />
+
+    <Button
+        android:id="@+id/btn_login_guest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/guest"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
+        android:backgroundTint="@color/black"
+        android:layout_marginTop="10dp"
+        />
+</LinearLayout>
