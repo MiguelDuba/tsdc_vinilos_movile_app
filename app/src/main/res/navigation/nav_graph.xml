@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/albumsFragment">
+
+    <fragment
+        android:id="@+id/albumsFragment"
+        android:name="com.miso.vinilos.ui.AlbumsFragment"
+        android:label="fragment_albums"
+        tools:layout="@layout/fragment_albums" />
+    <fragment
+        android:id="@+id/collectorsFragment"
+        android:name="com.miso.vinilos.ui.CollectorsFragment"
+        android:label="fragment_collectors"
+        tools:layout="@layout/fragment_collectors" />
+    <fragment
+        android:id="@+id/artistsFragment"
+        android:name="com.miso.vinilos.ui.ArtistsFragment"
+        android:label="fragment_artists"
+        tools:layout="@layout/fragment_artists" />
+</navigation>
