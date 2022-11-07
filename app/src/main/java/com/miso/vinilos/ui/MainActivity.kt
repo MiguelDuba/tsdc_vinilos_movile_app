@@ -1,5 +1,6 @@
 package com.miso.vinilos.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -22,5 +23,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun goToHome() {
+        val intent = Intent(this, PrincipalActivity::class.java)
+        startActivity(intent)
     }
 }
