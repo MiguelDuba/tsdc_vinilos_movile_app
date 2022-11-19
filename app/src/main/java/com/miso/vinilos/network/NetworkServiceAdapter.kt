@@ -8,7 +8,9 @@ import com.android.volley.VolleyError
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.miso.vinilos.models.Album
+import com.miso.vinilos.models.Artist
 import org.json.JSONArray
+import org.json.JSONObject
 
 class NetworkServiceAdapter constructor(context: Context) {
 
@@ -38,6 +40,33 @@ class NetworkServiceAdapter constructor(context: Context) {
                     list.add(i, Album(albumId = item.getInt("id"),name = item.getString("name"), cover = item.getString("cover"), recordLabel = item.getString("recordLabel"), releaseDate = item.getString("releaseDate"), genre = item.getString("genre"), description = item.getString("description"), imageResourceId = item.getInt("id")))
                 }
                 onComplete(list)
+            },
+            Response.ErrorListener {
+                onError(it)
+            }))
+    }
+
+//    fun getArtistDetail(id: Int, onComplete:(resp:List<Artist>)->Unit, onError: (error: VolleyError)->Unit){
+//        requestQueue.add(getRequest("musicians/${id}",
+//            Response.Listener<String> { response ->
+//                val resp = JSONArray(response)
+//                val list = mutableListOf<Artist>()
+//                for (i in 0 until resp.length()) {
+//                    val item = resp.getJSONObject(i)
+//                    list.add(i, Artist(artistId = item.getInt("id"),name = item.getString("name"), cover = item.getString("cover"), description = item.getString("description"), birthDate = item.getString("birthDate"), image = item.getInt("id")))
+//                }
+//                onComplete(list)
+//            },
+//            Response.ErrorListener {
+//                onError(it)
+//            }))
+//    }
+
+    fun getArtistDetail(id: Int, onComplete:(resp:Artist)->Unit, onError: (error: VolleyError)->Unit){
+        requestQueue.add(getRequest("musicians/$id",
+            Response.Listener<String> { response ->
+                val resp = JSONObject(response)
+                onComplete(Artist(artistId = resp.getInt("id"),name = resp.getString("name"), cover = resp.getString("cover"), description = resp.getString("description"), birthDate = resp.getString("birthDate"), image = resp.getInt("id")))
             },
             Response.ErrorListener {
                 onError(it)
