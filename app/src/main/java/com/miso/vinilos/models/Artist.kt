@@ -1,4 +1,9 @@
 package com.miso.vinilos.models
 
-class Artist {
-}
+data class Artist (
+    val artistId: Int,
+    val name: String,
+    val image: String,
+    val description: String,
+    val birthDate: String,
+)

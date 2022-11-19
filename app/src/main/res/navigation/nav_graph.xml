@@ -17,7 +17,7 @@
         tools:layout="@layout/fragment_collectors" />
     <fragment
         android:id="@+id/artistsFragment"
-        android:name="com.miso.vinilos.ui.ArtistsFragment"
-        android:label="fragment_artists"
-        tools:layout="@layout/fragment_artists" />
+        android:name="com.miso.vinilos.ui.ArtistFragment"
+        android:label="artist_fragment"
+        tools:layout="@layout/artist_fragment" />
 </navigation>
