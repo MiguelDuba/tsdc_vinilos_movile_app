@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.miso.vinilos.R
 
-class CollectorsFragment : Fragment(R.layout.fragment_artists) {
+class CollectorsFragment : Fragment(R.layout.artist_fragment) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }

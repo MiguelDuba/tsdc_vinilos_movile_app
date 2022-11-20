@@ -20,6 +20,7 @@
     <string name="record_company">Disquera</string>
     <string name="image_url">URL Imagen</string>
     <string name="title_albums">Título del album</string>
+    <string name="title_artist">Nombre del artista</string>
     <string name="album_name_placeholder">Viva la vida or Death and All His friends</string>
     <string name="album_description_placeholder">Viva la Vida or Death and All His Friends españolː Viva la vida o muerte y todos sus amigos— es el cuarto álbum de estudio de la banda británica Coldplay. Fue lanzado al mercado el 12 de junio de 2008 en el Reino Unido y el 17 de junio de 2008 en Estados Unidos y Canadá.​</string>
 </resources> 
