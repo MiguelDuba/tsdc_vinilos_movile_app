@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <variable name="artist" type="com.miso.vinilos.models.Artist"/>
+        <variable name="artistDetail" type="com.miso.vinilos.models.Artist"/>
     </data>
 
     <GridLayout
@@ -41,14 +41,14 @@
                     android:paddingTop="3dp"
                     android:paddingEnd="8dp"
                     android:paddingBottom="3dp"
-                    android:text="@{artist.name}"
+                    android:text="@{artistDetail.name}"
                     android:textStyle="bold"
                     android:textColor="@color/purple_500"/>
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/image2" />
+<!--                <ImageView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:src="@drawable/image2" />-->
 
                 <TextView
                     android:id="@+id/textView5"
@@ -58,7 +58,17 @@
                     android:paddingTop="3dp"
                     android:paddingEnd="8dp"
                     android:paddingBottom="3dp"
-                    android:text="@{artist.description}"/>
+                    android:text="@{artistDetail.description}"/>
+
+                <TextView
+                    android:id="@+id/textView7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="8dp"
+                    android:paddingTop="3dp"
+                    android:paddingEnd="8dp"
+                    android:paddingBottom="3dp"
+                    android:text="@{artistDetail.birthDate}"/>
 
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>

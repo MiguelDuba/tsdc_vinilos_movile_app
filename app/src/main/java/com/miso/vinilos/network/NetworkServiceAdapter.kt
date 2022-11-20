@@ -46,27 +46,27 @@ class NetworkServiceAdapter constructor(context: Context) {
             }))
     }
 
-//    fun getArtistDetail(id: Int, onComplete:(resp:List<Artist>)->Unit, onError: (error: VolleyError)->Unit){
-//        requestQueue.add(getRequest("musicians/${id}",
-//            Response.Listener<String> { response ->
-//                val resp = JSONArray(response)
-//                val list = mutableListOf<Artist>()
-//                for (i in 0 until resp.length()) {
-//                    val item = resp.getJSONObject(i)
-//                    list.add(i, Artist(artistId = item.getInt("id"),name = item.getString("name"), cover = item.getString("cover"), description = item.getString("description"), birthDate = item.getString("birthDate"), image = item.getInt("id")))
-//                }
-//                onComplete(list)
-//            },
-//            Response.ErrorListener {
-//                onError(it)
-//            }))
-//    }
+    fun getArtists(onComplete:(resp:List<Artist>)->Unit, onError: (error: VolleyError)->Unit){
+        requestQueue.add(getRequest("musicians",
+            Response.Listener<String> { response ->
+                val resp = JSONArray(response)
+                val list = mutableListOf<Artist>()
+                for (i in 0 until resp.length()) {
+                    val item = resp.getJSONObject(i)
+                    list.add(i, Artist(artistId = item.getInt("id"),name = item.getString("name"), image = item.getString("image"), description = item.getString("description"), birthDate = item.getString("birthDate")))
+                }
+                onComplete(list)
+            },
+            Response.ErrorListener {
+                onError(it)
+            }))
+    }
 
     fun getArtistDetail(id: Int, onComplete:(resp:Artist)->Unit, onError: (error: VolleyError)->Unit){
         requestQueue.add(getRequest("musicians/$id",
             Response.Listener<String> { response ->
                 val resp = JSONObject(response)
-                onComplete(Artist(artistId = resp.getInt("id"),name = resp.getString("name"), cover = resp.getString("cover"), description = resp.getString("description"), birthDate = resp.getString("birthDate"), image = resp.getInt("id")))
+                onComplete(Artist(artistId = resp.getInt("id"),name = resp.getString("name"), description = resp.getString("description"), birthDate = resp.getString("birthDate"), image = resp.getString("image")))
             },
             Response.ErrorListener {
                 onError(it)
