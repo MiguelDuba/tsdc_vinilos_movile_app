@@ -8,12 +8,14 @@
     </data>
 
     <GridLayout
+        android:id="@+id/gridToClick"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:rowCount="3"
-        android:columnCount="2">
+        android:columnCount="2"
+        android:rowCount="3">
 
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/mcv"
             android:layout_width="285dp"
             android:layout_height="wrap_content"
             android:layout_rowWeight="1"
@@ -42,8 +44,8 @@
                     android:paddingEnd="8dp"
                     android:paddingBottom="3dp"
                     android:text="@{album.name}"
-                    android:textStyle="bold"
-                    android:textColor="@color/purple_500"/>
+                    android:textColor="@color/purple_500"
+                    android:textStyle="bold" />
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -58,7 +60,7 @@
                     android:paddingTop="3dp"
                     android:paddingEnd="8dp"
                     android:paddingBottom="3dp"
-                    android:text="@{album.description}"/>
+                    android:text="@{album.description}" />
 
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
