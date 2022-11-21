@@ -8,10 +8,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.miso.vinilos.models.Artist
-//import androidx.navigation.fragment.findNavController
 import com.miso.vinilos.R
 import com.miso.vinilos.databinding.ArtistFragmentBinding
 import com.miso.vinilos.ui.adapters.ArtistsAdapter
@@ -40,7 +39,7 @@ class ArtistFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         recyclerView = binding.artistsRv
-        recyclerView.layoutManager = LinearLayoutManager(context)
+        recyclerView.layoutManager = GridLayoutManager(context, 3)
         recyclerView.adapter = viewModelAdapter
     }
 
