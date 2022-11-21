@@ -4,10 +4,13 @@ import android.app.Application
 import androidx.lifecycle.*
 import com.miso.vinilos.models.Artist
 import com.miso.vinilos.network.NetworkServiceAdapter
+import com.miso.vinilos.repositories.ArtistRepository
 
 class ArtistViewModel(application: Application) :  AndroidViewModel(application) {
 
     private val _artists = MutableLiveData<List<Artist>>()
+
+    private val artistsRepository = ArtistRepository(application)
 
     val artists: LiveData<List<Artist>>
         get() = _artists
@@ -27,7 +30,7 @@ class ArtistViewModel(application: Application) :  AndroidViewModel(application)
     }
 
     private fun refreshDataFromNetwork() {
-        NetworkServiceAdapter.getInstance(getApplication()).getArtists({
+        artistsRepository.refreshData({
             _artists.postValue(it)
             _eventNetworkError.value = false
             _isNetworkErrorShown.value = false
