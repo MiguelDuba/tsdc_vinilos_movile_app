@@ -2,6 +2,7 @@ package com.miso.vinilos.viewmodels
 
 import android.app.Application
 import androidx.lifecycle.*
+import com.miso.vinilos.models.Artist
 import com.miso.vinilos.models.Collector
 import com.miso.vinilos.network.NetworkServiceAdapter
 import com.miso.vinilos.repositories.CollectorRepository

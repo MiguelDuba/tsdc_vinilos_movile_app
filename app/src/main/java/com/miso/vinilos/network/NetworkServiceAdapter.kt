@@ -8,6 +8,7 @@ import com.android.volley.VolleyError
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.miso.vinilos.models.Album
+import com.miso.vinilos.models.Artist
 import com.miso.vinilos.models.Collector
 import org.json.JSONArray
 
@@ -61,7 +62,7 @@ class NetworkServiceAdapter constructor(context: Context) {
 
     fun getArtists(onComplete:(resp:List<Artist>)->Unit, onError: (error: VolleyError)->Unit){
         requestQueue.add(getRequest("musicians",
-            Response.Listener<String> { response ->
+            { response ->
                 val resp = JSONArray(response)
                 val list = mutableListOf<Artist>()
                 for (i in 0 until resp.length()) {
@@ -70,7 +71,7 @@ class NetworkServiceAdapter constructor(context: Context) {
                 }
                 onComplete(list)
             },
-            Response.ErrorListener {
+            {
                 onError(it)
             }))
     }
