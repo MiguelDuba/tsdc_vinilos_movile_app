@@ -25,8 +25,7 @@ class CollectorFragmentTest {
         onView(withId(R.id.btn_login_collector)).perform(click())
         onView(withId(R.id.collectorsFragment)).perform(click())
         onView(withId(R.id.collectorsFragment)).check(matches(isDisplayed()))
-        onView(withId(R.id.collectors_title)).check(matches(isDisplayed()))
-        onView(withId(R.id.collectors_recycler_view)).check(matches(isDisplayed()))
+        onView(withId(R.id.collectors_text)).check(matches(isDisplayed()))
         Thread.sleep(4000)
     }
 }
