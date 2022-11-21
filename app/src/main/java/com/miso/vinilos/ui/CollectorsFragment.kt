@@ -9,19 +9,10 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.miso.vinilos.R
 import com.miso.vinilos.models.Collector
 import com.miso.vinilos.ui.adapters.CollectorAdapter
 import androidx.lifecycle.Observer
-import androidx.lifecycle.get
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.miso.vinilos.databinding.AlbumFragmentBinding
-import com.miso.vinilos.databinding.ArtistFragmentBinding
 import com.miso.vinilos.databinding.CollectorFragmentBinding
-import com.miso.vinilos.databinding.CollectorItemBinding
-import com.miso.vinilos.ui.adapters.AlbumsAdapter
-import com.miso.vinilos.ui.adapters.ArtistsAdapter
-import com.miso.vinilos.viewmodels.AlbumViewModel
 import com.miso.vinilos.viewmodels.CollectorViewModel
 
 
@@ -46,7 +37,7 @@ class CollectorsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         recyclerView = binding.collectorsRecyclerView
-        recyclerView.layoutManager = LinearLayoutManager(context)
+        recyclerView.layoutManager = GridLayoutManager(context, 3)
         recyclerView.adapter = viewModelAdapter
     }
 
