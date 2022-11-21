@@ -26,7 +26,6 @@ class ArtistFragmentTest {
         onView(withId(R.id.artistsFragment)).perform(click())
         onView(withId(R.id.artistsFragment)).check(matches(isDisplayed()))
         onView(withId(R.id.artist_text)).check(matches(isDisplayed()))
-        onView(withId(R.id.artistsRv)).check(matches(isDisplayed()))
         Thread.sleep(4000)
     }
 }

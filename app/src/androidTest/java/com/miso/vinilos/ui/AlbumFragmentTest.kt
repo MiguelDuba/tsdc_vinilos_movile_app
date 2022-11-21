@@ -25,6 +25,6 @@ class AlbumFragmentTest {
         onView(withId(R.id.btn_login_collector)).perform(click())
         onView(withId(R.id.albumsFragment)).check(matches(isDisplayed()))
         onView(withId(R.id.albums_text)).check(matches(isDisplayed()))
-        onView(withId(R.id.albumsRv)).check(matches(isDisplayed()))
+        Thread.sleep(4000)
     }
 }
