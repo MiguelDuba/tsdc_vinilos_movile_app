@@ -10,6 +10,7 @@ import com.android.volley.toolbox.Volley
 import com.miso.vinilos.models.Album
 import com.miso.vinilos.models.Collector
 import org.json.JSONArray
+import org.json.JSONObject
 
 class NetworkServiceAdapter constructor(context: Context) {
 
@@ -75,6 +76,38 @@ class NetworkServiceAdapter constructor(context: Context) {
             }))
     }
 
+    fun getArtistDetail(id: Int, onComplete:(resp:Artist)->Unit, onError: (error: VolleyError)->Unit){
+        requestQueue.add(getRequest("musicians/$id",
+            Response.Listener<String> { response ->
+                val resp = JSONObject(response)
+
+                onComplete(Artist(artistId = resp.getInt("id"),name = resp.getString("name"), description = resp.getString("description"), birthDate = resp.getString("birthDate"), image = resp.getString("image")))
+            },
+            Response.ErrorListener {
+                onError(it)
+            }))
+    }
+
+    fun getAlbum(id: Int, onComplete:(resp:Album)->Unit, onError: (error: VolleyError)->Unit){
+        requestQueue.add(getRequest("albums/$id",
+            Response.Listener<String> { response ->
+                val resp = JSONObject(response)
+                onComplete(Album(
+                    albumId = resp.getInt("id"),
+                    name = resp.getString("name"),
+                    cover = resp.getString("cover"),
+                    releaseDate = resp.getString("releaseDate"),
+                    description = resp.getString("description"),
+                    genre = resp.getString("releaseDate"),
+                    recordLabel = resp.getString("releaseDate"),
+                    imageResourceId = resp.getInt("id")
+                ))
+            },
+            Response.ErrorListener {
+                onError(it)
+            }))
+    }
+
     fun getCollectors(
         onComplete: (resp: List<Collector>) -> Unit,
         onError: (error: VolleyError) -> Unit
@@ -104,5 +137,4 @@ class NetworkServiceAdapter constructor(context: Context) {
     private fun getRequest(path:String, responseListener: Response.Listener<String>, errorListener: Response.ErrorListener): StringRequest {
         return StringRequest(Request.Method.GET, BASE_URL+path, responseListener,errorListener)
     }
-
 }
