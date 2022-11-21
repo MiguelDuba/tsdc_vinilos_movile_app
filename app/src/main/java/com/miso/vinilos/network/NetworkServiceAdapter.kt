@@ -66,7 +66,28 @@ class NetworkServiceAdapter constructor(context: Context) {
         requestQueue.add(getRequest("musicians/$id",
             Response.Listener<String> { response ->
                 val resp = JSONObject(response)
+
                 onComplete(Artist(artistId = resp.getInt("id"),name = resp.getString("name"), description = resp.getString("description"), birthDate = resp.getString("birthDate"), image = resp.getString("image")))
+            },
+            Response.ErrorListener {
+                onError(it)
+            }))
+    }
+
+    fun getAlbum(id: Int, onComplete:(resp:Album)->Unit, onError: (error: VolleyError)->Unit){
+        requestQueue.add(getRequest("albums/$id",
+            Response.Listener<String> { response ->
+                val resp = JSONObject(response)
+                onComplete(Album(
+                    albumId = resp.getInt("id"),
+                    name = resp.getString("name"),
+                    cover = resp.getString("cover"),
+                    releaseDate = resp.getString("releaseDate"),
+                    description = resp.getString("description"),
+                    genre = resp.getString("releaseDate"),
+                    recordLabel = resp.getString("releaseDate"),
+                    imageResourceId = resp.getInt("id")
+                ))
             },
             Response.ErrorListener {
                 onError(it)
