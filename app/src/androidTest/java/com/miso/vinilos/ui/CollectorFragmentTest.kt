@@ -15,18 +15,18 @@ import org.junit.runner.RunWith
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
-class ArtistFragmentTest {
+class CollectorFragmentTest {
 
     @get:Rule
     val activityRule = ActivityScenarioRule(MainActivity::class.java)
 
     @Test
-    fun testListArtists() {
+    fun testCollectorList() {
         onView(withId(R.id.btn_login_collector)).perform(click())
-        onView(withId(R.id.artistsFragment)).perform(click())
-        onView(withId(R.id.artistsFragment)).check(matches(isDisplayed()))
-        onView(withId(R.id.artist_text)).check(matches(isDisplayed()))
-        onView(withId(R.id.artistsRv)).check(matches(isDisplayed()))
+        onView(withId(R.id.collectorsFragment)).perform(click())
+        onView(withId(R.id.collectorsFragment)).check(matches(isDisplayed()))
+        onView(withId(R.id.collectors_title)).check(matches(isDisplayed()))
+        onView(withId(R.id.collectors_recycler_view)).check(matches(isDisplayed()))
         Thread.sleep(4000)
     }
 }
