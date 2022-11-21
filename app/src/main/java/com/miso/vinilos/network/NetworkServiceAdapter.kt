@@ -38,8 +38,9 @@ class NetworkServiceAdapter constructor(context: Context) {
                 Response.Listener<String> { response ->
                     val resp = JSONArray(response)
                     val list = mutableListOf<Album>()
+                    var item:JSONObject? = null
                     for (i in 0 until resp.length()) {
-                        val item = resp.getJSONObject(i)
+                        item = resp.getJSONObject(i)
                         list.add(
                             i,
                             Album(
@@ -67,8 +68,9 @@ class NetworkServiceAdapter constructor(context: Context) {
             { response ->
                 val resp = JSONArray(response)
                 val list = mutableListOf<Artist>()
+                var item:JSONObject? = null
                 for (i in 0 until resp.length()) {
-                    val item = resp.getJSONObject(i)
+                    item = resp.getJSONObject(i)
                     list.add(i, Artist(artistId = item.getInt("id"),name = item.getString("name"), image = item.getString("image"), description = item.getString("description"), birthDate = item.getString("birthDate")))
                 }
                 onComplete(list)
@@ -118,8 +120,9 @@ class NetworkServiceAdapter constructor(context: Context) {
             Response.Listener<String> { response ->
                 val collectorsArray = JSONArray(response)
                 var collectorlist = mutableListOf<Collector>()
+                var item:JSONObject? = null
                 for (i in 0 until collectorsArray.length()) {
-                    val item = collectorsArray.getJSONObject(i)
+                    item = collectorsArray.getJSONObject(i)
                     collectorlist.add(
                         i,
                         Collector(

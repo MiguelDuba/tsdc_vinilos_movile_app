@@ -28,7 +28,6 @@
         <item name="android:paddingBottom">15dp</item>
     </style>
 
-
     <style name="Name">
         <item name="android:textSize">12sp</item>
         <item name="android:textColor">@color/gray</item>
