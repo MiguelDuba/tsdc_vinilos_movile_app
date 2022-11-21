@@ -4,10 +4,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.miso.vinilos.R
 import com.miso.vinilos.databinding.AlbumItemBinding
 import com.miso.vinilos.models.Album
+import com.miso.vinilos.ui.AlbumFragmentDirections
 
 class AlbumsAdapter : RecyclerView.Adapter<AlbumsAdapter.AlbumViewHolder>() {
 
@@ -30,11 +32,11 @@ class AlbumsAdapter : RecyclerView.Adapter<AlbumsAdapter.AlbumViewHolder>() {
         holder.viewDataBinding.also {
             it.album = albums[position]
         }
-       // holder.viewDataBinding.root.setOnClickListener {
-       //     val action = AlbumFragmentDirections.actionAlbumFragmentToCommentFragment(albums[position].albumId)
-       //     // Navigate using that action
-       //     holder.viewDataBinding.root.findNavController().navigate(action)
-       // }
+       holder.viewDataBinding.root.setOnClickListener {
+           val action = AlbumFragmentDirections.actionAlbumsFragmentToAlbumDetailFragment(albums[position].albumId)
+           // Navigate using that action
+           holder.viewDataBinding.root.findNavController().navigate(action)
+       }
     }
 
     override fun getItemCount(): Int {

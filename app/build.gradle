@@ -32,10 +32,6 @@ android {
         jvmTarget = '1.8'
     }
 
-    dataBinding {
-        enabled true
-    }
-
     buildFeatures {
         viewBinding true
         dataBinding true
@@ -60,6 +56,7 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
     implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
+    implementation 'com.squareup.picasso:picasso:2.8'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
@@ -68,4 +65,7 @@ dependencies {
     def fragment_version = "1.5.4"
 
     debugImplementation("androidx.fragment:fragment-testing:$fragment_version")
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-moshi:$moshi_version"
+    implementation "com.squareup.okhttp3:okhttp:$okhttp_version"
 }
