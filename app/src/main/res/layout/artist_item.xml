@@ -8,12 +8,14 @@
     </data>
 
     <GridLayout
+        android:id="@+id/grid_artist"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:rowCount="3"
-        android:columnCount="2">
+        android:columnCount="2"
+        android:rowCount="3">
 
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/c1"
             android:layout_width="285dp"
             android:layout_height="wrap_content"
             android:layout_rowWeight="1"
@@ -27,6 +29,7 @@
             app:strokeWidth="1dp">
 
             <LinearLayout
+                android:id="@+id/ly"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|center_horizontal"
@@ -42,8 +45,8 @@
                     android:paddingEnd="8dp"
                     android:paddingBottom="3dp"
                     android:text="@{artist.name}"
-                    android:textStyle="bold"
-                    android:textColor="@color/purple_500"/>
+                    android:textColor="@color/purple_500"
+                    android:textStyle="bold" />
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -59,7 +62,7 @@
                     android:paddingTop="3dp"
                     android:paddingEnd="8dp"
                     android:paddingBottom="3dp"
-                    android:text="@{artist.description}"/>
+                    android:text="@{artist.description}" />
 
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
