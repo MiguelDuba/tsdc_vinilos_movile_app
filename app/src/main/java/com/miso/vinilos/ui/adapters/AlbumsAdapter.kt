@@ -43,16 +43,10 @@ class AlbumsAdapter : RecyclerView.Adapter<AlbumsAdapter.AlbumViewHolder>() {
         return albums.size
     }
 
-    class AlbumViewHolder(val viewDataBinding: AlbumItemBinding) :
-        RecyclerView.ViewHolder(viewDataBinding.root) {
+    class AlbumViewHolder(val viewDataBinding: AlbumItemBinding) : RecyclerView.ViewHolder(viewDataBinding.root) {
         companion object {
             @LayoutRes
             val LAYOUT = R.layout.album_item
         }
     }
-
-
-
-
-
 }

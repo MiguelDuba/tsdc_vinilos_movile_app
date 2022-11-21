@@ -21,10 +21,11 @@
             app:cardCornerRadius="6dp">
 
             <ImageView
+                android:id="@+id/imageView"
                 android:layout_width="match_parent"
                 android:layout_height="125dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/image2" />
+                app:setImageUrl="@{album.cover}" />
 
         </com.google.android.material.card.MaterialCardView>
 
