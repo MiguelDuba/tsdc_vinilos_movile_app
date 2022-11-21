@@ -6,15 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-<!--    <TextView-->
-<!--        android:layout_width="121dp"-->
-<!--        android:layout_height="51dp"-->
-<!--        android:text="Detalle artista"-->
-<!--        android:textAlignment="center"-->
-<!--        android:textColor="@color/purple_500"-->
-<!--        android:textSize="30dp"-->
-<!--        android:textStyle="bold" />-->
-
     <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
