@@ -19,8 +19,8 @@ import kotlin.coroutines.suspendCoroutine
 class NetworkServiceAdapter constructor(context: Context) {
 
     companion object {
-        // const val BASE_URL = "https://back-vinyls-populated.herokuapp.com/"
-        const val BASE_URL= "https://vynils-back-dvs.herokuapp.com/"
+        const val BASE_URL = "https://back-vinyls-populated.herokuapp.com/"
+        // const val BASE_URL= "https://vynils-back-dvs.herokuapp.com/"
         var instance: NetworkServiceAdapter? = null
         fun getInstance(context: Context) =
             instance ?: synchronized(this) {
@@ -40,8 +40,9 @@ class NetworkServiceAdapter constructor(context: Context) {
             Response.Listener<String> { response ->
                 val resp = JSONArray(response)
                 val list = mutableListOf<Album>()
+                var item:JSONObject? = null
                 for (i in 0 until resp.length()) {
-                    val item = resp.getJSONObject(i)
+                    item = resp.getJSONObject(i)
                     list.add(i, Album(
                         albumId = item.getInt("id"),
                         name = item.getString("name"),
@@ -57,6 +58,7 @@ class NetworkServiceAdapter constructor(context: Context) {
             Response.ErrorListener {
                 cont.resumeWithException(it)
             }))
+
     }
 
     suspend fun getArtists()= suspendCoroutine<List<Artist>>{ cont ->
@@ -64,14 +66,10 @@ class NetworkServiceAdapter constructor(context: Context) {
             Response.Listener<String> { response ->
                 val resp = JSONArray(response)
                 val list = mutableListOf<Artist>()
+                var item:JSONObject? = null
                 for (i in 0 until resp.length()) {
-                    val item = resp.getJSONObject(i)
-                    list.add(i, Artist(
-                        artistId = item.getInt("id"),
-                        name = item.getString("name"),
-                        image = item.getString("image"),
-                        description = item.getString("description"),
-                        birthDate = item.getString("birthDate")))
+                    item = resp.getJSONObject(i)
+                    list.add(i, Artist(artistId = item.getInt("id"),name = item.getString("name"), image = item.getString("image"), description = item.getString("description"), birthDate = item.getString("birthDate")))
                 }
                 cont.resume(list)
             },
@@ -120,8 +118,9 @@ class NetworkServiceAdapter constructor(context: Context) {
             Response.Listener<String> { response ->
                 val collectorsArray = JSONArray(response)
                 var collectorlist = mutableListOf<Collector>()
+                var item:JSONObject? = null
                 for (i in 0 until collectorsArray.length()) {
-                    val item = collectorsArray.getJSONObject(i)
+                    item = collectorsArray.getJSONObject(i)
                     collectorlist.add(
                         i,
                         Collector(
