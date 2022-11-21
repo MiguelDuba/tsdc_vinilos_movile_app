@@ -7,33 +7,32 @@
         <variable name="collector" type="com.miso.vinilos.models.Collector"/>
     </data>
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cardView"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        card_view:cardCornerRadius="10dp"
-        card_view:contentPadding="10dp"
-        android:layout_margin="10dp"
-        card_view:tint="@color/black">
-        <LinearLayout
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/mcv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            card_view:cardCornerRadius="6dp">
+
+            <ImageView
+                android:id="@+id/collectorImage"
+                android:layout_width="match_parent"
+                android:layout_height="125dp"
+                android:src="@drawable/image2" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/textView6"
+            style="@style/Name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <ImageView
-                android:id="@+id/collector_image"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"/>
-
-            <TextView
-                android:id="@+id/collector_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:gravity="center"
-                android:textColor="@android:color/black"
-                android:text="@{collector.name}"/>
-        </LinearLayout>
-
-    </com.google.android.material.card.MaterialCardView>
-
+            android:text="@{collector.name}" />
+    </LinearLayout>
 </layout>
