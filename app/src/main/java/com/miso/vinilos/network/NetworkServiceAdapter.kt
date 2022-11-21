@@ -10,6 +10,7 @@ import com.android.volley.toolbox.Volley
 import com.miso.vinilos.models.Album
 import com.miso.vinilos.models.Artist
 import com.miso.vinilos.models.Collector
+import com.miso.vinilos.models.Track
 import org.json.JSONArray
 import org.json.JSONObject
 import kotlin.coroutines.resume
@@ -132,6 +133,32 @@ class NetworkServiceAdapter constructor(context: Context) {
                     )
                 }
                 onComplete(collectorlist)
+            },
+            Response.ErrorListener { onError(it) }
+        ))
+    }
+
+    fun getCancionesAlbum(
+        id: Int,
+        onComplete: (resp: List<Track>) -> Unit,
+        onError: (error: VolleyError) -> Unit){
+        requestQueue.add(getRequest("$id/tracks",
+            Response.Listener<String> { response ->
+                val tracksArray = JSONArray(response)
+                var trackList = mutableListOf<Track>()
+                var item:JSONObject? = null
+                for (i in 0 until tracksArray.length()) {
+                    item = tracksArray.getJSONObject(i)
+                    trackList.add(
+                        i,
+                        Track(
+                            trackId = item.getInt("id"),
+                            name = item.getString("name"),
+                            duration = item.getString("duration")
+                        )
+                    )
+                }
+                onComplete(trackList)
             },
             Response.ErrorListener { onError(it) }
         ))

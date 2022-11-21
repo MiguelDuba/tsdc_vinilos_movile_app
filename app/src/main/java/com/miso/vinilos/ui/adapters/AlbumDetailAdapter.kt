@@ -7,18 +7,20 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.miso.vinilos.R
 import com.miso.vinilos.databinding.AlbumDetailFragmentBinding
+import com.miso.vinilos.databinding.AlbumDetailItemBinding
 import com.miso.vinilos.models.Album
+import com.miso.vinilos.models.Track
 
 class AlbumDetailAdapter : RecyclerView.Adapter<AlbumDetailAdapter.AlbumDetailViewHolder>(){
 
-    var albums :Album? = null
+    var album :Album? = null
     set(value) {
         field = value
         notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AlbumDetailViewHolder {
-        val withDataBinding: AlbumDetailFragmentBinding = DataBindingUtil.inflate(
+        val withDataBinding: AlbumDetailItemBinding = DataBindingUtil.inflate(
             LayoutInflater.from(parent.context),
             AlbumDetailViewHolder.LAYOUT,
             parent,
@@ -28,7 +30,7 @@ class AlbumDetailAdapter : RecyclerView.Adapter<AlbumDetailAdapter.AlbumDetailVi
 
     override fun onBindViewHolder(holder: AlbumDetailViewHolder, position: Int) {
         holder.viewDataBinding.also {
-            it.albumDetail = albums
+            it.albumDetail = album
         }
     }
 
@@ -36,11 +38,11 @@ class AlbumDetailAdapter : RecyclerView.Adapter<AlbumDetailAdapter.AlbumDetailVi
         return 1
     }
 
-    class AlbumDetailViewHolder(val viewDataBinding: AlbumDetailFragmentBinding) :
+    class AlbumDetailViewHolder(val viewDataBinding: AlbumDetailItemBinding) :
         RecyclerView.ViewHolder(viewDataBinding.root) {
         companion object {
             @LayoutRes
-            val LAYOUT = R.layout.album_detail_fragment
+            val LAYOUT = R.layout.album_detail_item
         }
     }
 }
