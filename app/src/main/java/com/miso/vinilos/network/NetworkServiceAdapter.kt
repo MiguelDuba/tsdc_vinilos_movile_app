@@ -8,13 +8,13 @@ import com.android.volley.VolleyError
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.miso.vinilos.models.Album
-import com.miso.vinilos.models.Artist
+import com.miso.vinilos.models.Collector
 import org.json.JSONArray
 
 class NetworkServiceAdapter constructor(context: Context) {
 
-    companion object{
-        const val BASE_URL= "https://back-vinyls-populated.herokuapp.com/"
+    companion object {
+        const val BASE_URL = "https://back-vinyls-populated.herokuapp.com/"
         var instance: NetworkServiceAdapter? = null
         fun getInstance(context: Context) =
             instance ?: synchronized(this) {
@@ -29,20 +29,34 @@ class NetworkServiceAdapter constructor(context: Context) {
         Volley.newRequestQueue(context.applicationContext)
     }
 
-    fun getAlbums(onComplete:(resp:List<Album>)->Unit, onError: (error: VolleyError)->Unit){
-        requestQueue.add(getRequest("albums",
-            Response.Listener<String> { response ->
-                val resp = JSONArray(response)
-                val list = mutableListOf<Album>()
-                for (i in 0 until resp.length()) {
-                    val item = resp.getJSONObject(i)
-                    list.add(i, Album(albumId = item.getInt("id"),name = item.getString("name"), cover = item.getString("cover"), recordLabel = item.getString("recordLabel"), releaseDate = item.getString("releaseDate"), genre = item.getString("genre"), description = item.getString("description"), imageResourceId = item.getInt("id")))
-                }
-                onComplete(list)
-            },
-            Response.ErrorListener {
-                onError(it)
-            }))
+    fun getAlbums(onComplete: (resp: List<Album>) -> Unit, onError: (error: VolleyError) -> Unit) {
+        requestQueue.add(
+            getRequest("albums",
+                Response.Listener<String> { response ->
+                    val resp = JSONArray(response)
+                    val list = mutableListOf<Album>()
+                    for (i in 0 until resp.length()) {
+                        val item = resp.getJSONObject(i)
+                        list.add(
+                            i,
+                            Album(
+                                albumId = item.getInt("id"),
+                                name = item.getString("name"),
+                                cover = item.getString("cover"),
+                                recordLabel = item.getString("recordLabel"),
+                                releaseDate = item.getString("releaseDate"),
+                                genre = item.getString("genre"),
+                                description = item.getString("description"),
+                                imageResourceId = item.getInt("id")
+                            )
+                        )
+                    }
+                    onComplete(list)
+                },
+                Response.ErrorListener {
+                    onError(it)
+                })
+        )
     }
 
     fun getArtists(onComplete:(resp:List<Artist>)->Unit, onError: (error: VolleyError)->Unit){
@@ -59,6 +73,32 @@ class NetworkServiceAdapter constructor(context: Context) {
             Response.ErrorListener {
                 onError(it)
             }))
+    }
+
+    fun getCollectors(
+        onComplete: (resp: List<Collector>) -> Unit,
+        onError: (error: VolleyError) -> Unit
+    ) {
+        requestQueue.add(getRequest("collectors",
+            Response.Listener<String> { response ->
+                val collectorsArray = JSONArray(response)
+                var collectorlist = mutableListOf<Collector>()
+                for (i in 0 until collectorsArray.length()) {
+                    val item = collectorsArray.getJSONObject(i)
+                    collectorlist.add(
+                        i,
+                        Collector(
+                            collectorId = item.getInt("id"),
+                            name = item.getString("name"),
+                            telephone = item.getString("telephone"),
+                            email = item.getString("email")
+                        )
+                    )
+                }
+                onComplete(collectorlist)
+            },
+            Response.ErrorListener { onError(it) }
+        ))
     }
 
     private fun getRequest(path:String, responseListener: Response.Listener<String>, errorListener: Response.ErrorListener): StringRequest {
