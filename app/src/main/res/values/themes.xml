@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.Vinilos" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimary">@color/gray</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
@@ -12,5 +12,28 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+    </style>
+
+    <style name="BottomNavigation">
+        <item name="android:background">@color/white</item>
+        <item name="itemIconTint">@color/gray</item>
+        <item name="itemTextColor">@color/blue</item>
+        <item name="itemActiveIndicatorStyle">@color/red</item>
+    </style>
+
+    <style name="Title">
+        <item name="android:textSize">19sp</item>
+        <item name="android:textColor">@color/red</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:paddingBottom">15dp</item>
+    </style>
+
+    <style name="Name">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:textAlignment">center</item>
+
     </style>
 </resources>

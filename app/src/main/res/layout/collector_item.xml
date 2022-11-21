@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable name="collector" type="com.miso.vinilos.models.Collector"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/mcv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            card_view:cardCornerRadius="6dp">
+
+            <ImageView
+                android:id="@+id/collectorImage"
+                android:layout_width="match_parent"
+                android:layout_height="125dp"
+                android:src="@drawable/image2" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/textView6"
+            style="@style/Name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{collector.name}" />
+    </LinearLayout>
+</layout>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable name="artist" type="com.miso.vinilos.models.Artist"/>
+    </data>
+
+    <LinearLayout
+        android:id="@+id/ly"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/c1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="6dp">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="125dp"
+                android:scaleType="centerCrop"
+                android:id="@+id/imageView"
+                android:src="@drawable/image3"
+                app:setImageUrl="@{artist.image}" />
+        </com.google.android.material.card.MaterialCardView>
+        <TextView
+            android:id="@+id/textView6"
+            style="@style/Name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{artist.name}" />
+    </LinearLayout>
+</layout>
