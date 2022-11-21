@@ -26,7 +26,7 @@ class ButtonNavigationTest {
     val activityRule = ActivityScenarioRule(MainActivity::class.java)
 
     @Test
-    fun testListAlbums() {
+    fun testButtonNavigation() {
         onView(withId(R.id.btn_login_collector)).perform(click())
         onView(withId(R.id.albumsFragment)).check(matches(isDisplayed()))
         onView(withId(R.id.artistsFragment)).check(matches(isDisplayed()))
