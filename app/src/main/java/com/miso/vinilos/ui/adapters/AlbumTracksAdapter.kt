@@ -29,7 +29,8 @@ class AlbumTracksAdapter : RecyclerView.Adapter<AlbumTracksAdapter.AlbumTracksVi
 
     override fun onBindViewHolder(holder: AlbumTracksViewHolder, position: Int) {
         holder.viewDataBinding.also {
-            it.index.text = (position + 1).toString()
+            var index = (position + 1).toString()
+            it.index.text = index
             it.track = tracks[position]
         }
     }

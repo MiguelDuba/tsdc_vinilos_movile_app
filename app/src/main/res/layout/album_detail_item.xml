@@ -29,7 +29,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="15dp"
-                android:contentDescription="Test"
+                android:contentDescription="@string/albumnImageContentDescription"
                 android:maxWidth="125dp"
                 android:maxHeight="125dp"
                 android:minWidth="125dp"

@@ -81,7 +81,7 @@ class AlbumDetailFragment : Fragment() {
         tracksViewModel.tracks.observe(viewLifecycleOwner, Observer<List<Track>>{
             it.apply {
                 if(this.size == 0){
-                    tracksAdapter!!.tracks= listOf<>(Track(0, "Este album no tiene canciones disponibles", ""))
+                    tracksAdapter!!.tracks= listOf<Track>(Track(0, "Este album no tiene canciones disponibles", ""))
                 }else{
                     tracksAdapter!!.tracks = this
                 }

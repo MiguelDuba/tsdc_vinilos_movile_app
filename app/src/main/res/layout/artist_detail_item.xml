@@ -23,7 +23,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
-                app:setImageUrl="@{artistDetail.image}" />
+                app:setImageUrl="@{artistDetail.image}"
+                android:contentDescription="@string/artistsImageContentDescription"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -37,7 +38,6 @@
                     android:id="@+id/textView6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/musicianImage"
                     android:fontFamily="@font/roboto_bold"
                     android:text="@{artistDetail.name}"
                     android:textColor="@color/white"
