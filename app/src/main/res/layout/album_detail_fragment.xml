@@ -16,5 +16,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:listitem="@layout/album_detail_item" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Canciones" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/trackRecycleView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/artist_detail_item" />
     </LinearLayout>
 </layout>

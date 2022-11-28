@@ -2,21 +2,20 @@ package com.miso.vinilos.viewmodels
 
 import android.app.Application
 import androidx.lifecycle.*
-import com.miso.vinilos.models.Artist
-import com.miso.vinilos.network.NetworkServiceAdapter
-import com.miso.vinilos.repositories.ArtistRepository
+import com.miso.vinilos.models.Album
+import com.miso.vinilos.repositories.AlbumRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class ArtistViewModel(application: Application) :  AndroidViewModel(application) {
+class AlbumViewModel(application: Application) :  AndroidViewModel(application) {
 
-    private val _artists = MutableLiveData<List<Artist>>()
+    private val albumsRepository = AlbumRepository(application)
 
-    private val artistsRepository = ArtistRepository(application)
+    private val _albums = MutableLiveData<List<Album>>()
 
-    val artists: LiveData<List<Artist>>
-        get() = _artists
+    val albums: LiveData<List<Album>>
+        get() = _albums
 
     private var _eventNetworkError = MutableLiveData<Boolean>(false)
 
@@ -36,8 +35,8 @@ class ArtistViewModel(application: Application) :  AndroidViewModel(application)
         try {
             viewModelScope.launch (Dispatchers.Default){
                 withContext(Dispatchers.IO){
-                    var data = artistsRepository.refreshData()
-                    _artists.postValue(data)
+                    var data = albumsRepository.refreshData()
+                    _albums.postValue(data)
                 }
                 _eventNetworkError.postValue(false)
                 _isNetworkErrorShown.postValue(false)
@@ -54,9 +53,9 @@ class ArtistViewModel(application: Application) :  AndroidViewModel(application)
 
     class Factory(val app: Application) : ViewModelProvider.Factory {
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            if (modelClass.isAssignableFrom(ArtistViewModel::class.java)) {
+            if (modelClass.isAssignableFrom(AlbumViewModel::class.java)) {
                 @Suppress("UNCHECKED_CAST")
-                return ArtistViewModel(app) as T
+                return AlbumViewModel(app) as T
             }
             throw IllegalArgumentException("Unable to construct viewmodel")
         }

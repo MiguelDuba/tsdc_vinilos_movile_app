@@ -28,7 +28,7 @@ class AlbumTracksViewModel(application: Application, albumId: Int):  AndroidView
     }
 
     private fun refreshDataFromNetwork() {
-        NetworkServiceAdapter.getInstance(getApplication()).getCancionesAlbum(id,{
+        NetworkServiceAdapter.getInstance(getApplication()).getTracksAlbum(id,{
             tracksList.postValue(it)
             _eventNetworkError.value = false
             _isNetworkErrorShown.value = false
@@ -43,7 +43,7 @@ class AlbumTracksViewModel(application: Application, albumId: Int):  AndroidView
 
     class Factory(val app: Application, val albumId: Int) : ViewModelProvider.Factory {
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            if (modelClass.isAssignableFrom(AlbumDetailViewModel::class.java)) {
+            if (modelClass.isAssignableFrom(AlbumTracksViewModel::class.java)) {
                 @Suppress("UNCHECKED_CAST")
                 return AlbumTracksViewModel(app, albumId) as T
             }

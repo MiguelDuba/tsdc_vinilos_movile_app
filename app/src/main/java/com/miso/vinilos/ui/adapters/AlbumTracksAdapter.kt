@@ -4,10 +4,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
-import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import com.miso.vinilos.R
-import com.miso.vinilos.databinding.AlbumDetailItemBinding
 import com.miso.vinilos.databinding.TrackItemBinding
 import com.miso.vinilos.models.Track
 
@@ -22,9 +20,10 @@ class AlbumTracksAdapter : RecyclerView.Adapter<AlbumTracksAdapter.AlbumTracksVi
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AlbumTracksViewHolder {
         val withDataBinding: TrackItemBinding = DataBindingUtil.inflate(
             LayoutInflater.from(parent.context),
-            AlbumDetailAdapter.AlbumDetailViewHolder.LAYOUT,
+            AlbumTracksAdapter.AlbumTracksViewHolder.LAYOUT,
             parent,
-            false)
+            false
+        )
         return AlbumTracksViewHolder(withDataBinding)
     }
 
@@ -39,12 +38,10 @@ class AlbumTracksAdapter : RecyclerView.Adapter<AlbumTracksAdapter.AlbumTracksVi
         return tracks.size
     }
 
-
-
-    class AlbumTracksViewHolder(val viewDataBinding: TrackItemBinding):
-            RecyclerView.ViewHolder(viewDataBinding.root){
-                companion object
-                @LayoutRes
-                val LAYOUT = R.layout.track_item
-            }
+    class AlbumTracksViewHolder(val viewDataBinding: TrackItemBinding): RecyclerView.ViewHolder(viewDataBinding.root){
+        companion object{
+            @LayoutRes
+            val LAYOUT = R.layout.track_item
+        }
+    }
 }
