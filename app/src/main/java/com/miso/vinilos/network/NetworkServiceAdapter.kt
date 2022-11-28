@@ -138,11 +138,11 @@ class NetworkServiceAdapter constructor(context: Context) {
         ))
     }
 
-    fun getCancionesAlbum(
+    fun getTracksAlbum(
         id: Int,
         onComplete: (resp: List<Track>) -> Unit,
         onError: (error: VolleyError) -> Unit){
-        requestQueue.add(getRequest("$id/tracks",
+        requestQueue.add(getRequest("albums/$id/tracks",
             Response.Listener<String> { response ->
                 val tracksArray = JSONArray(response)
                 var trackList = mutableListOf<Track>()

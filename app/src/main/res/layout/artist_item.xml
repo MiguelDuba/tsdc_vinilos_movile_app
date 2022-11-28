@@ -12,7 +12,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="10dp"
+        android:paddingEnd="10dp"
+        android:paddingStart="10dp"
         android:paddingBottom="10dp">
 
         <com.google.android.material.card.MaterialCardView
@@ -26,7 +27,8 @@
                 android:scaleType="centerCrop"
                 android:id="@+id/imageView"
                 android:src="@drawable/image3"
-                app:setImageUrl="@{artist.image}" />
+                app:setImageUrl="@{artist.image}"
+                android:contentDescription="@string/artistsImageContentDescription"/>
         </com.google.android.material.card.MaterialCardView>
         <TextView
             android:id="@+id/textView6"

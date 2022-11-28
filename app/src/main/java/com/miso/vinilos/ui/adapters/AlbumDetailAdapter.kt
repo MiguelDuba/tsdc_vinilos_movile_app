@@ -6,10 +6,8 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.miso.vinilos.R
-import com.miso.vinilos.databinding.AlbumDetailFragmentBinding
 import com.miso.vinilos.databinding.AlbumDetailItemBinding
 import com.miso.vinilos.models.Album
-import com.miso.vinilos.models.Track
 
 class AlbumDetailAdapter : RecyclerView.Adapter<AlbumDetailAdapter.AlbumDetailViewHolder>(){
 
