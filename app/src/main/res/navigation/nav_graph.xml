@@ -45,4 +45,13 @@
             android:name="albumId"
             app:argType="integer" />
     </fragment>
+    <fragment
+        android:id="@+id/collectorDetailFragment"
+        android:name="com.miso.vinilos.ui.CollectorDetailFragment"
+        android:label="collector_detail_fragment"
+        tools:layout="@layout/collector_detail_fragment">
+        <argument
+            android:name="collectorId"
+            app:argType="integer" />
+    </fragment>
 </navigation>
