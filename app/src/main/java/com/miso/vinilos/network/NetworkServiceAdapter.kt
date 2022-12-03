@@ -20,8 +20,9 @@ import kotlin.coroutines.suspendCoroutine
 class NetworkServiceAdapter constructor(context: Context) {
 
     companion object {
-        const val BASE_URL = "https://back-vinyls-populated.herokuapp.com/"
+        const val BASE_URL = "https://vynils-back-dvs.herokuapp.com/"
         // const val BASE_URL= "https://vynils-back-dvs.herokuapp.com/"
+        // const val BASE_URL= "https://back-vinyls-populated.herokuapp.com/"
         var instance: NetworkServiceAdapter? = null
         fun getInstance(context: Context) =
             instance ?: synchronized(this) {
@@ -162,6 +163,22 @@ class NetworkServiceAdapter constructor(context: Context) {
             },
             Response.ErrorListener { onError(it) }
         ))
+    }
+
+    fun getCollectorDetail(id: Int, onComplete:(resp:Collector)->Unit, onError: (error: VolleyError)->Unit){
+        requestQueue.add(getRequest("collectors/$id",
+            Response.Listener<String> { response ->
+                val resp = JSONObject(response)
+
+                onComplete(Collector(
+                    collectorId = resp.getInt("id"),
+                    name = resp.getString("name"),
+                    telephone = resp.getString("telephone"),
+                    email = resp.getString("email")))
+            },
+            Response.ErrorListener {
+                onError(it)
+            }))
     }
 
     private fun getRequest(path:String, responseListener: Response.Listener<String>, errorListener: Response.ErrorListener): StringRequest {
