@@ -10,8 +10,8 @@
         android:icon="@drawable/ic_collectors"
         />
 
-    <item android:id="@+id/albumsFragment"
-        android:title="@string/albums"
+    <item
+        android:id="@+id/albumsFragment"
         android:icon="@drawable/ic_albums"
-        />
+        android:title="@string/albums" />
 </menu>
