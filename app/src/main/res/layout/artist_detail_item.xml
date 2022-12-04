@@ -38,6 +38,7 @@
                     android:id="@+id/textView6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:contentDescription="nombre del artista"
                     android:fontFamily="@font/roboto_bold"
                     android:text="@{artistDetail.name}"
                     android:textColor="@color/white"
@@ -50,6 +51,7 @@
             android:id="@+id/data"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:contentDescription="descripcion del artista"
             android:paddingLeft="20dp"
             android:paddingTop="10dp"
             android:paddingRight="20dp"
@@ -60,9 +62,9 @@
                 android:id="@+id/biography"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
                 android:fontFamily="@font/roboto"
-                android:text="@{artistDetail.description}" />
+                android:text="@{artistDetail.description}"
+                android:textColor="@color/black" />
         </LinearLayout>
 
         <LinearLayout

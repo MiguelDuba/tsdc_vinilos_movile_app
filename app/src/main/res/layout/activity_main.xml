@@ -33,17 +33,17 @@
         android:layout_marginTop="60dp"
         android:layout_marginRight="60dp"
         android:backgroundTint="@color/purple_500"
-        android:text="@string/collector"
-        />
+        android:contentDescription="boton log coleccionista"
+        android:text="@string/collector" />
 
     <Button
         android:id="@+id/btn_login_guest"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/guest"
         android:layout_marginLeft="60dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="60dp"
         android:backgroundTint="@color/black"
-        android:layout_marginTop="10dp"
-        />
+        android:contentDescription="boton log invitado"
+        android:text="@string/guest" />
 </LinearLayout>
