@@ -184,15 +184,45 @@ class NetworkServiceAdapter constructor(context: Context) {
     }
 
     suspend fun createAlbum(body: JSONObject) = suspendCoroutine<Album>{ cont->
-        Log.d("Crear Album",body.toString())
         requestQueue.add(postRequest("albums", body,
             { response ->
-                Log.d("Crear Album", "Album Creado")
                 val album=Album(albumId = response.getInt("id"),name = response.getString("name"), cover = response.getString("cover"), recordLabel = response.getString("recordLabel"), releaseDate = response.getString("releaseDate"), genre = response.getString("genre"), description = response.getString("description"), imageResourceId = response.getInt("id"))
                 cont.resume(album)
             },
             {
-                Log.d("Crear Album", "ERROR")
+                Log.d("Crear album", "ERROR")
+                cont.resumeWithException(it)
+            }))
+    }
+
+    suspend fun getTracksByAlbumId(albumId:Int) = suspendCoroutine<List<Track>>{ cont ->
+        requestQueue.add(getRequest("albums/"+albumId.toString()+"/tracks",
+            Response.Listener<String> { response ->
+                val resp = JSONArray(response)
+                val list = mutableListOf<Track>()
+                var item:JSONObject? = null
+                for (i in 0 until resp.length()) {
+                    item = resp.getJSONObject(i)
+                    list.add(i, Track(trackId = item.getInt("id"),
+                        name = item.getString("name"),
+                        duration = item.getString("duration"))
+                    )
+                }
+                cont.resume(list)
+            },
+            Response.ErrorListener {
+                cont.resumeWithException(it)
+            }))
+    }
+
+    suspend fun createTrack(body: JSONObject, albumId: Int) = suspendCoroutine<Track>{ cont->
+        requestQueue.add(postRequest("albums/"+albumId.toString()+"/tracks", body,
+            { response ->
+                val track=Track(trackId = response.getInt("id"),name = response.getString("name"), duration = response.getString("duration"))
+                cont.resume(track)
+            },
+            {
+                Log.d("Crear Cancion", "ERROR")
                 cont.resumeWithException(it)
             }))
     }

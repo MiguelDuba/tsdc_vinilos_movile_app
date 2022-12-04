@@ -51,6 +51,9 @@
         <argument
             android:name="albumId"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_albumDetailFragment_to_fragmentAddTrack"
+            app:destination="@id/fragmentAddTrack" />
     </fragment>
     <fragment
         android:id="@+id/collectorDetailFragment"
@@ -67,5 +70,17 @@
         <action
             android:id="@+id/action_fragmentAlbumCreate_to_albumDetailFragment"
             app:destination="@id/albumDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentAddTrack"
+        android:name="com.miso.vinilos.ui.TrackCreateFragment">
+        <argument android:name="albumName"
+            app:argType="string" />
+        <argument
+            android:name="albumId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_fragmentAddTrack_to_albumsFragment"
+            app:destination="@id/albumsFragment" />
     </fragment>
 </navigation>
