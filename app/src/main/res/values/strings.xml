@@ -29,4 +29,14 @@
     <string name="albumnImageContentDescription" >Imagen del albumn</string>
     <string name="artistsImageContentDescription" >Imagen del Artista</string>
     <string name="collectorImageContentDescription" >Imagen del Artista</string>
+    <string name="name">Nombre</string>
+    <string name="duration">Duración</string>
+    <string name="description">Descripción</string>
+    <string name="add">Crear</string>
+    <string name="create_album">Crear album</string>
+    <string name="Género" />
+    <string name="genre">Género</string>
+    <string name="recordLabel">Disquera</string>
+    <string name="year">Año de lanzamiento</string>
+    <string name="image_url">Imagen URL</string>
 </resources> 
