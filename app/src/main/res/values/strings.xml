@@ -7,7 +7,6 @@
     <string name="collectors">Coleccionistas</string>
     <string name="artists">Artistas</string>
     <string name="albums">Albums</string>
-<!--    <string name="albums_collected">Albums coleccionados</string>-->
 <!--    <string name="add_track">Agregar canción</string>-->
 <!--    <string name="add">Agregar</string>-->
 <!--    <string name="tracks">Canciones</string>-->
@@ -29,6 +28,7 @@
     <string name="albumnImageContentDescription" >Imagen del albumn</string>
     <string name="artistsImageContentDescription" >Imagen del Artista</string>
     <string name="collectorImageContentDescription" >Imagen del Artista</string>
+    <string name="albums_collected">Albums coleccionados</string>
     <string name="name">Nombre</string>
     <string name="duration">Duración</string>
     <string name="description">Descripción</string>
