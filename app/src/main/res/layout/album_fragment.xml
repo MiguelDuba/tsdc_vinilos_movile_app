@@ -31,4 +31,13 @@
             tools:listitem="@layout/album_item" />
     </LinearLayout>
 
+    <Button
+        android:id="@+id/btnAlbumCreate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-40dp"
+        android:text="+"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/albums_text" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

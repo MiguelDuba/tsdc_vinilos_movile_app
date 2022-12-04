@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_albumsFragment_to_albumDetailFragment"
             app:destination="@id/albumDetailFragment" />
+        <action
+            android:id="@+id/action_albumsFragment_to_fragmentAlbumCreate"
+            app:destination="@id/fragmentAlbumCreate" />
     </fragment>
     <fragment
         android:id="@+id/collectorsFragment"
@@ -57,5 +60,12 @@
         <argument
             android:name="collectorId"
             app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentAlbumCreate"
+        android:name="com.miso.vinilos.ui.AlbumCreateFragment">
+        <action
+            android:id="@+id/action_fragmentAlbumCreate_to_albumDetailFragment"
+            app:destination="@id/albumDetailFragment" />
     </fragment>
 </navigation>
