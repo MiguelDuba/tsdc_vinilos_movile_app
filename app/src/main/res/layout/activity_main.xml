@@ -14,7 +14,7 @@
         android:text="@string/login"
         android:textAlignment="center"
         android:fontFamily="@font/roboto"
-        android:textColor="@color/blue"
+        android:textColor="@color/purple_500"
         android:textSize="50sp" />
 
     <TextView
@@ -22,6 +22,7 @@
         android:layout_height="wrap_content"
         android:text="@string/login_mode"
         android:textAlignment="center"
+        android:backgroundTint="@color/purple_500"
         android:textSize="13sp" />
 
     <Button
@@ -31,18 +32,18 @@
         android:layout_marginLeft="60dp"
         android:layout_marginTop="60dp"
         android:layout_marginRight="60dp"
-        android:backgroundTint="@color/red"
-        android:text="@string/collector"
-        />
+        android:backgroundTint="@color/purple_500"
+        android:contentDescription="boton log coleccionista"
+        android:text="@string/collector" />
 
     <Button
         android:id="@+id/btn_login_guest"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/guest"
         android:layout_marginLeft="60dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="60dp"
         android:backgroundTint="@color/black"
-        android:layout_marginTop="10dp"
-        />
+        android:contentDescription="boton log invitado"
+        android:text="@string/guest" />
 </LinearLayout>
