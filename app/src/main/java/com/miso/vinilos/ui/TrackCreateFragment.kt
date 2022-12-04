@@ -51,9 +51,8 @@ class TrackCreateFragment : Fragment() {
     ): View? {
         _binding = TrackCreateFragmentBinding.inflate(inflater, container, false)
         val view = binding.root
-        val tvAlbumTittle : TextView = view.findViewById(R.id.tvAlbumName)
-
-        tvAlbumTittle.text = args.albumName
+        //val tvAlbumTittle : TextView = view.findViewById(R.id.tvAlbumName)
+        //tvAlbumTittle.text = args.albumName
 
         return view
     }
