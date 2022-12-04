@@ -29,4 +29,5 @@
     <string name="albumnImageContentDescription" >Imagen del albumn</string>
     <string name="artistsImageContentDescription" >Imagen del Artista</string>
     <string name="collectorImageContentDescription" >Imagen del Artista</string>
+    <string name="albums_collected">Albums coleccionados</string>
 </resources> 
