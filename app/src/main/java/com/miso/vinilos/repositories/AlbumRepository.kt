@@ -14,7 +14,6 @@ class AlbumRepository (val application: Application){
     }
 
     suspend fun createAlbum(album: JSONObject):Album{
-        Log.d("Prueba Corutina","Crear Album")
         return NetworkServiceAdapter.getInstance(application).createAlbum(album)
     }
 }

@@ -23,7 +23,6 @@ import com.miso.vinilos.viewmodels.AlbumCreateViewModel
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import org.json.JSONObject
-import com.miso.vinilos.ui.AlbumCreateFragmentDirections
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
