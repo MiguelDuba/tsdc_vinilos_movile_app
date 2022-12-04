@@ -49,6 +49,7 @@
                 <map>
                   <entry key="Duration" value="90" />
                   <entry key="Pixel_4_XL_API_33" value="120" />
+                  <entry key="Pixel_6_API_33" value="120" />
                   <entry key="Pixel_XL_API_33" value="120" />
                   <entry key="Tests" value="360" />
                 </map>
@@ -82,6 +83,19 @@
             </AndroidTestResultsTableState>
           </value>
         </entry>
+        <entry key="161815422">
+          <value>
+            <AndroidTestResultsTableState>
+              <option name="preferredColumnWidths">
+                <map>
+                  <entry key="Duration" value="90" />
+                  <entry key="Pixel_6_API_33" value="120" />
+                  <entry key="Tests" value="360" />
+                </map>
+              </option>
+            </AndroidTestResultsTableState>
+          </value>
+        </entry>
         <entry key="315357822">
           <value>
             <AndroidTestResultsTableState>
@@ -102,6 +116,19 @@
                 <map>
                   <entry key="Duration" value="90" />
                   <entry key="Pixel_4_XL_API_33" value="120" />
+                  <entry key="Tests" value="360" />
+                </map>
+              </option>
+            </AndroidTestResultsTableState>
+          </value>
+        </entry>
+        <entry key="773908764">
+          <value>
+            <AndroidTestResultsTableState>
+              <option name="preferredColumnWidths">
+                <map>
+                  <entry key="Duration" value="90" />
+                  <entry key="Pixel_6_API_33" value="120" />
                   <entry key="Tests" value="360" />
                 </map>
               </option>
@@ -155,6 +182,7 @@
                 <map>
                   <entry key="Duration" value="90" />
                   <entry key="Pixel_4_XL_API_33" value="120" />
+                  <entry key="Pixel_6_API_33" value="120" />
                   <entry key="Tests" value="360" />
                 </map>
               </option>
