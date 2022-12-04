@@ -1,10 +1,12 @@
 package com.miso.vinilos.network
 
 import android.content.Context
+import android.util.Log
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.Response
 import com.android.volley.VolleyError
+import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.miso.vinilos.models.Album
@@ -181,7 +183,25 @@ class NetworkServiceAdapter constructor(context: Context) {
             }))
     }
 
+    suspend fun createAlbum(body: JSONObject) = suspendCoroutine<Album>{ cont->
+        Log.d("Crear Album",body.toString())
+        requestQueue.add(postRequest("albums", body,
+            { response ->
+                Log.d("Crear Album", "Album Creado")
+                val album=Album(albumId = response.getInt("id"),name = response.getString("name"), cover = response.getString("cover"), recordLabel = response.getString("recordLabel"), releaseDate = response.getString("releaseDate"), genre = response.getString("genre"), description = response.getString("description"), imageResourceId = response.getInt("id"))
+                cont.resume(album)
+            },
+            {
+                Log.d("Crear Album", "ERROR")
+                cont.resumeWithException(it)
+            }))
+    }
+
     private fun getRequest(path:String, responseListener: Response.Listener<String>, errorListener: Response.ErrorListener): StringRequest {
         return StringRequest(Request.Method.GET, BASE_URL+path, responseListener,errorListener)
+    }
+
+    private fun postRequest(path: String, body: JSONObject,  responseListener: Response.Listener<JSONObject>, errorListener: Response.ErrorListener ): JsonObjectRequest {
+        return  JsonObjectRequest(Request.Method.POST, BASE_URL+path, body, responseListener, errorListener)
     }
 }
