@@ -36,7 +36,7 @@
                 android:text="@string/canciones" />
 
             <ImageView
-                android:id="@+id/btnTrackCreate"
+                android:id="@+id/btnAddTrack"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_centerInParent="true"
@@ -50,11 +50,5 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:listitem="@layout/artist_detail_item" />
-
-        <Button
-            android:id="@+id/btnAddTrack"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="+" />
     </LinearLayout>
 </layout>
