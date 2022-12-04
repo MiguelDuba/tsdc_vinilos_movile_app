@@ -9,23 +9,52 @@
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/collectors_text">
+        app:layout_constraintTop_toBottomOf="@+id/collectors_text"
+        android:padding="20dp">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/album_details_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:listitem="@layout/album_detail_item" />
-        <TextView
-            android:id="@+id/textView"
+            tools:listitem="@layout/album_detail_item"
+            android:layout_marginBottom="15dp"/>
+
+        <RelativeLayout
+            android:id="@+id/albums_top"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/canciones" />
+            app:layout_constraintBaseline_toTopOf="parent"
+            android:layout_marginBottom="5dp"
+            >
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="17sp"
+                android:fontFamily="@font/roboto_bold"
+                android:text="@string/canciones" />
+
+            <ImageView
+                android:id="@+id/btnTrackCreate"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_centerInParent="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                app:srcCompat="@drawable/plus" />
+        </RelativeLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/trackRecycleView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:listitem="@layout/artist_detail_item" />
+
+        <Button
+            android:id="@+id/btnAddTrack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="+" />
     </LinearLayout>
 </layout>

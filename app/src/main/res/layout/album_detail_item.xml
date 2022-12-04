@@ -5,7 +5,6 @@
 
 
     <data>
-
         <variable
             name="albumDetail"
             type="com.miso.vinilos.models.Album" />
@@ -15,8 +14,7 @@
         android:id="@+id/albumsFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="20dp">
+        android:orientation="vertical">
 
         <RelativeLayout
             android:id="@+id/topContent"
@@ -34,6 +32,8 @@
                 android:maxHeight="125dp"
                 android:minWidth="125dp"
                 android:minHeight="125dp"
+                app:setImageUrl="@{albumDetail.cover}"
+                android:adjustViewBounds="true"
                 android:src="@drawable/ic_albums" />
 
             <LinearLayout
@@ -48,7 +48,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@{albumDetail.name}" />
+                    android:textColor="@color/gray"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="@{albumDetail.name}"
+                    android:textAlignment="textStart" />
 
                 <TextView
                     android:id="@+id/releaseDate"
@@ -56,15 +60,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@{albumDetail.releaseDate}" />
+                    android:text="@{albumDetail.releaseDate}"
+                    android:textSize="12sp"
+                    android:textColor="@color/black_light"
+                    android:textAlignment="textStart" />
 
                 <TextView
                     android:id="@+id/recordLabel"
-                    style="@style/Name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@{albumDetail.recordLabel}" />
+                    android:text="@{albumDetail.recordLabel}"
+                    android:textColor="@color/black_light"
+                    android:textSize="12sp"
+                    android:textAlignment="textStart" />
 
                 <TextView
                     android:id="@+id/textView10"
@@ -72,7 +81,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@{albumDetail.description}" />
+                    android:maxLines="4"
+                    android:textSize="12sp"
+                    android:textColor="@color/black_light"
+                    android:text="@{albumDetail.description}"
+                    android:textAlignment="textStart" />
             </LinearLayout>
         </RelativeLayout>
 
