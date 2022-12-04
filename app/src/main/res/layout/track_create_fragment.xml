@@ -5,97 +5,65 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.TrackCreateFragment"
-    android:layout_marginTop="60dp"
-    android:layout_marginStart="16dp"
-    android:layout_marginEnd="16dp"
+    android:padding="20dp"
     android:id="@+id/fragmentAddTrack">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:id="@+id/tvTittle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:minHeight="48dp"
         android:gravity="center"
-        android:text="Asociar canción al album"
-        android:textColor="@color/black"
-        android:textSize="25sp"
+        style="@style/Title"
+        android:text="@string/add_track"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_margin="12dp"/>
-
-
-    <TextView
-        android:id="@+id/tvAlbumTittle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:minHeight="48dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvTittle"
-        android:textColor="@color/black"
-        android:layout_marginTop="35dp"
-        android:layout_marginStart="35dp"
-        android:text="Album"
-        android:textSize="20sp"
-        android:gravity="center"/>
-
-    <TextView
-        android:id="@+id/tvAlbumName"
-        android:layout_width="wrap_content"
-        android:maxWidth="225dp"
-        android:layout_height="wrap_content"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTittle"
-        android:gravity="center"
-        android:layout_marginTop="35dp"
-        android:layout_marginEnd="25dp"
-        android:textSize="18sp"/>
-
-    <TextView
-        android:id="@+id/tvCanciones"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:minHeight="48dp"
-        android:gravity="center"
-        android:text="Nueva Canción"
-        android:textColor="@color/black"
-        android:textSize="25sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvAlbumTittle"
-        android:layout_margin="12dp"/>
-
-    <EditText
-        android:id="@+id/etName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:minHeight="48dp"
-        android:hint="Nombre"
-        app:layout_constraintTop_toBottomOf="@id/tvCanciones"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_margin="25dp"
         />
 
-    <EditText
-        android:id="@+id/etDuration"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="25dp"
-        android:hint="Duración"
-        android:minHeight="48dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etName" />
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toBottomOf="@id/tvTittle">
 
-    <Button
-        android:id="@+id/btnAddTrack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="140dp"
-        android:layout_marginTop="36dp"
-        android:text="Añadir"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etDuration" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/name"
+            app:endIconMode="clear_text"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_marginBottom="10dp">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/duration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/duration"
+            app:endIconMode="clear_text"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_marginBottom="10dp">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etDuration"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAddTrack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/black"
+            android:padding="10dp"
+            android:text="Añadir"/>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
