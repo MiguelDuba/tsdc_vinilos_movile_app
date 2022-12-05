@@ -9,7 +9,7 @@ import com.miso.vinilos.R
 import org.junit.Rule
 import org.junit.Test
 
-class AlbumDetailFragmentTest {
+class TrackCreateFragmentTest {
 
     @get:Rule
     val activityRule = ActivityScenarioRule(MainActivity::class.java)
@@ -20,7 +20,9 @@ class AlbumDetailFragmentTest {
         Thread.sleep(5000)
         Espresso.onView(withIndex(ViewMatchers.withId(R.id.aly), 0)).perform(ViewActions.click());
         Thread.sleep(5000)
-        Espresso.onView(ViewMatchers.withId(R.id.lla))
+        Espresso.onView(ViewMatchers.withId(R.id.btnAddTrack)).perform(ViewActions.click());
+        Thread.sleep(2000)
+        Espresso.onView(ViewMatchers.withId(R.id.tvTittle))
             ?.check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
     }
 }

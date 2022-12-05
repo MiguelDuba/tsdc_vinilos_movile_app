@@ -8,11 +8,12 @@
         tools:context=".ui.AlbumCreateFragment"
         android:padding="20dp">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/create_album"
-            style="@style/Title"/>
+    <TextView
+        android:id="@+id/albumCreateText"
+        style="@style/Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/create_album" />
 
         <LinearLayout
             android:layout_width="match_parent"
