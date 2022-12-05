@@ -28,7 +28,7 @@ class ArtistDetailFragmentTest {
     val activityRule = ActivityScenarioRule(MainActivity::class.java)
 
     @Test
-    fun testListAlbumDetails() {
+    fun testArtistDetail() {
         onView(withId(R.id.btn_login_collector)).perform(click())
         onView(withId(R.id.albumsFragment)).check(matches(isDisplayed()))
         onView(withId(R.id.artistsFragment)).perform(click())

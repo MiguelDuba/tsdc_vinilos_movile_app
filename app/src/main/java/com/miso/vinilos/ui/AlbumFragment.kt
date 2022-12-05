@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.miso.vinilos.models.Album
@@ -15,7 +16,7 @@ import com.miso.vinilos.R
 import com.miso.vinilos.databinding.AlbumFragmentBinding
 import com.miso.vinilos.ui.adapters.AlbumsAdapter
 import com.miso.vinilos.viewmodels.AlbumViewModel
-
+import com.miso.vinilos.ui.AlbumFragmentDirections
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
  */
@@ -59,6 +60,10 @@ class AlbumFragment : Fragment() {
         viewModel.eventNetworkError.observe(viewLifecycleOwner, Observer<Boolean> { isNetworkError ->
             if (isNetworkError) onNetworkError()
         })
+        binding.btnAlbumCreate.setOnClickListener{
+            val action = AlbumFragmentDirections.actionAlbumsFragmentToFragmentAlbumCreate()
+            view?.findNavController()?.navigate(action)
+        }
     }
 
     override fun onDestroyView() {

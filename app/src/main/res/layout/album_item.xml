@@ -8,10 +8,12 @@
     </data>
 
     <LinearLayout
+        android:id="@+id/aly"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="10dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
         android:paddingBottom="10dp">
 
         <com.google.android.material.card.MaterialCardView
@@ -24,6 +26,7 @@
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
                 android:layout_height="125dp"
+                android:contentDescription="@string/albumnImageContentDescription"
                 android:scaleType="centerCrop"
                 app:setImageUrl="@{album.cover}" />
 

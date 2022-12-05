@@ -8,21 +8,43 @@
     android:orientation="vertical"
     android:padding="20dp">
 
-    <TextView
-        android:id="@+id/albums_text"
-        style="@style/Title"
+    <RelativeLayout
+        android:id="@+id/albums_top"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/albums"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBaseline_toTopOf="parent"
+        >
+        <TextView
+            android:id="@+id/albums_text"
+            style="@style/Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:padding="0dp"
+            android:text="@string/albums"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <ImageView
+            android:id="@+id/btnAlbumCreate"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_centerInParent="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            app:srcCompat="@drawable/plus" />
+    </RelativeLayout>
 
     <LinearLayout
+        android:id="@+id/aly"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/albums_text">
+        app:layout_constraintTop_toBottomOf="@+id/albums_top">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/albumsRv"

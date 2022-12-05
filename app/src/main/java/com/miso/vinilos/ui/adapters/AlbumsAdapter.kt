@@ -32,11 +32,11 @@ class AlbumsAdapter : RecyclerView.Adapter<AlbumsAdapter.AlbumViewHolder>() {
         holder.viewDataBinding.also {
             it.album = albums[position]
         }
-//       holder.viewDataBinding.root.setOnClickListener {
-//           val action = AlbumFragmentDirections.actionAlbumsFragmentToAlbumDetailFragment(albums[position].albumId)
-//           // Navigate using that action
-//           holder.viewDataBinding.root.findNavController().navigate(action)
-//       }
+       holder.viewDataBinding.root.setOnClickListener {
+           val action = AlbumFragmentDirections.actionAlbumsFragmentToAlbumDetailFragment(albums[position].albumId)
+           // Navigate using that action
+           holder.viewDataBinding.root.findNavController().navigate(action)
+       }
     }
 
     override fun getItemCount(): Int {
