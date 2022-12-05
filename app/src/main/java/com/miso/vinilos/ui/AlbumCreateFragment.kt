@@ -35,8 +35,8 @@ private const val ARG_PARAM2 = "param2"
  */
 class AlbumCreateFragment : Fragment() {
     lateinit var contexto:Context
-    var generos = arrayOf("Classical","Salsa","Rock","Folk")
-    var sellos = arrayOf("Sony Music","EMI","Discos Fuentes","Elektra","Fania Records")
+    var generos = arrayOf("Classical","Vallenato","Rock","Folk","Ranchera", "Disco", "Reggaeton", "Reggae")
+    var sellos = arrayOf("Sony Music","EMI","RCA Records","Columbia Records","PolyGram", "WEA Music", "Epic Records", "Island Records")
     private val array_generos: Array<String> = arrayOf("Classical","Salsa","Rock","Folk")
     private var _binding: AlbumCreateFragmentBinding? = null
     private val binding get() = _binding!!
